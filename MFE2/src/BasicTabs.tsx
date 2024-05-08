@@ -2,7 +2,7 @@ import React from 'react'
 
 const BasicTabs = () => {
   return (
-    <div>BasicTabsssssss</div>
+    <div>testß</div>
   )
 }
 

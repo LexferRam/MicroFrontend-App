@@ -1,0 +1,12 @@
+.agrandar {
+    animation: agrandar 2.3s linear infinite;
+  }
+  
+  @keyframes agrandar {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }

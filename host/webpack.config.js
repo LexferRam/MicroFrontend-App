@@ -2,6 +2,17 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
+
+// const remotes = () => {
+//   // console.log(isServer)
+//   // const location = isServer ? 'ssr' : 'chunks';
+//   return {
+//     // specify remotes
+//      remote: `remote@http://localhost:3000/_next/static/chunks/remoteEntry.js`,
+//     // mfe2: `mfe2@http://localhost:8080/remoteEntry.js`,
+//   };
+// }
+
 module.exports = (_, argv) => ({
   output: {
     publicPath: "http://localhost:8080/",
@@ -46,6 +57,10 @@ module.exports = (_, argv) => ({
       remotes: {
         MFE1: 'MFE1@http://localhost:8081/remoteEntry.js',
         MFE2: 'MFE2@http://localhost:8082/remoteEntry.js',
+        remote: `remote@http://localhost:3000/_next/static/chunks/remoteEntry.js`,
+        myGatsbyRemote: 'myGatsbyRemote@http://localhost:8000'
+        // ...remotes(isServer)
+        // remote_nextjs_module: `remote_nextjs_module@http://localhost:3000/_next/static/${location}/remoteEntry.js`,
       },
       exposes: {},
       shared: {
